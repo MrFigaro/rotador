@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Administrador - Rotación de Jugadores</title>
+</head>
+<body>
+    <h2>Lista de Espera</h2>
+    <ul>
+        {% for nick in espera %}
+            <li>{{ nick }} - <a href="{{ url_for('marcar', nick=nick) }}">Marcar como jugado</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Siguiente grupo para jugar</h2>
+    <ol>
+        {% for nick in siguiente %}
+            <li>{{ nick }}</li>
+        {% endfor %}
+    </ol>
+
+    <h2>Ya jugaron</h2>
+    <ul>
+        {% for nick in ya_jugaron %}
+            <li>{{ nick }}</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="{{ url_for('reiniciar') }}">🔁 Reiniciar Listas</a>
+</body>
+</html>
